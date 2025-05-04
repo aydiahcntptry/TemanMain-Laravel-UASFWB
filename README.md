@@ -9,8 +9,8 @@
 
 <br></br>
 
-*Ayudian Cinta Putry*    
-*D0223019*   
+**Ayudiah Cinta Putry**    
+**D0223019**   
 
 <br>
 
