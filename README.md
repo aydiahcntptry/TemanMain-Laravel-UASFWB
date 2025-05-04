@@ -1,8 +1,8 @@
-# Teman Main  
-*(Platform Penitipan & Perawatan Hewan dengan Layanan Home Service)*  
+**Teman Main** 
+**(Platform Penitipan & Perawatan Hewan dengan Layanan Home Service)**  
 
 <p align="center">
-  <img src="unsulbar.png" alt="Logo Kampus" width="158">
+  <img src="unsulbar.png" alt="Logo Kampus" width="100">
 </p>
 
 **Ayudian Cinta Putry**  
