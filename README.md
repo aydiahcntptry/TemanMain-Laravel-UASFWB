@@ -75,61 +75,69 @@ Setelah menerima komisi, Anda bisa menarik uang tersebut jika diperlukan.
 
 ## 🗂️ **TABEL-TABEL DATABASE**  
 
-1. Tabel: Users (Pengguna)
-Field	Tipe Data	Deskripsi
-user_id	INT (PK)	ID unik pengguna
-username	VARCHAR(50)	Nama pengguna
-email	VARCHAR(100)	Alamat email pengguna
-password	VARCHAR(255)	Password pengguna
-role	ENUM('admin', 'pemilik_hewan', 'perawat_hewan')	Peran pengguna di platform
-status	ENUM('aktif', 'suspend')	Status akun (aktif atau suspend)
-created_at	DATETIME	Tanggal pembuatan akun
+📄 Tabel: Users (Pengguna)
+| Field      | Tipe Data                                           | Deskripsi                                 |
+|------------|-----------------------------------------------------|--------------------------------------------|
+| user_id    | INT (PK)                                            | ID unik pengguna                           |
+| username   | VARCHAR(50)                                         | Nama pengguna                              |
+| email      | VARCHAR(100)                                        | Alamat email pengguna                      |
+| password   | VARCHAR(255)                                        | Password pengguna                          |
+| role       | ENUM('admin', 'pemilik_hewan', 'perawat_hewan')    | Peran pengguna di platform                 |
+| status     | ENUM('aktif', 'suspend')                            | Status akun (aktif atau suspend)           |
+| created_at | DATETIME                                            | Tanggal pembuatan akun                     |
 
-2. Tabel: Pets (Hewan Peliharaan)
-Field	Tipe Data	Deskripsi
-pet_id	INT (PK)	ID unik hewan
-owner_id	INT (FK)	ID pemilik hewan (referensi ke Users)
-name	VARCHAR(50)	Nama hewan
-species	VARCHAR(50)	Jenis hewan (misal: anjing, kucing, dll)
-health_history	TEXT	Riwayat kesehatan hewan
-photo	VARCHAR(255)	Link foto hewan
-vaccination	TEXT	Riwayat vaksinasi
-created_at	DATETIME	Tanggal pembuatan data hewan
+📄 Tabel: Pets (Hewan Peliharaan)
+| Field           | Tipe Data     | Deskripsi                                 |
+|-----------------|---------------|--------------------------------------------|
+| pet_id          | INT (PK)      | ID unik hewan                              |
+| owner_id        | INT (FK)      | ID pemilik hewan (referensi ke Users)      |
+| name            | VARCHAR(50)   | Nama hewan                                 |
+| species         | VARCHAR(50)   | Jenis hewan (misal: anjing, kucing, dll)   |
+| health_history  | TEXT          | Riwayat kesehatan hewan                    |
+| photo           | VARCHAR(255)  | Link foto hewan                            |
+| vaccination     | TEXT          | Riwayat vaksinasi                          |
+| created_at      | DATETIME      | Tanggal pembuatan data hewan               |
 
-3. Tabel: Services (Layanan)
-Field	Tipe Data	Deskripsi
-service_id	INT (PK)	ID unik layanan
-service_type	ENUM('penitipan', 'grooming', 'home_service')	Jenis layanan
-price	DECIMAL(10, 2)	Harga layanan
-description	TEXT	Deskripsi layanan
-created_at	DATETIME	Tanggal layanan dibuat
+📄 Tabel: Services (Layanan)
+| Field        | Tipe Data                                       | Deskripsi                          |
+|--------------|--------------------------------------------------|-------------------------------------|
+| service_id   | INT (PK)                                         | ID unik layanan                     |
+| service_type | ENUM('penitipan', 'grooming', 'home_service')   | Jenis layanan                       |
+| price        | DECIMAL(10, 2)                                   | Harga layanan                       |
+| description  | TEXT                                             | Deskripsi layanan                   |
+| created_at   | DATETIME                                         | Tanggal layanan dibuat              |
 
-4. Tabel: Orders (Pesanan)
-Field	Tipe Data	Deskripsi
-order_id	INT (PK)	ID unik pesanan
-pet_id	INT (FK)	ID hewan yang dipesan (referensi ke Pets)
-service_id	INT (FK)	ID layanan yang dipesan (referensi ke Services)
-status	ENUM('pending', 'in_progress', 'completed')	Status pesanan
-service_date	DATETIME	Tanggal dan waktu layanan dilakukan
-created_at	DATETIME	Tanggal pembuatan pesanan
+📄 Tabel: Orders (Pesanan)
+| Field        | Tipe Data                                      | Deskripsi                                      |
+|--------------|------------------------------------------------|------------------------------------------------|
+| order_id     | INT (PK)                                       | ID unik pesanan                                |
+| pet_id       | INT (FK)                                       | ID hewan yang dipesan (referensi ke Pets)      |
+| service_id   | INT (FK)                                       | ID layanan yang dipesan (referensi ke Services)|
+| status       | ENUM('pending', 'in_progress', 'completed')   | Status pesanan                                 |
+| service_date | DATETIME                                       | Tanggal dan waktu layanan dilakukan            |
+| created_at   | DATETIME                                       | Tanggal pembuatan pesanan                      |
 
-5. Tabel: Payments (Pembayaran)
-Field	Tipe Data	Deskripsi
-payment_id	INT (PK)	ID unik pembayaran
-order_id	INT (FK)	ID pesanan yang dibayar (referensi ke Orders)
-amount	DECIMAL(10, 2)	Jumlah yang dibayar saat pengambilan hewan
-payment_status	ENUM('pending', 'paid')	Status pembayaran (pending sampai hewan diambil)
-payment_date	DATETIME	Tanggal pembayaran dilakukan, yaitu setelah pemilik mengambil hewan
+📄 Tabel: Payments (Pembayaran)
+| Field          | Tipe Data               | Deskripsi                                                           |
+|----------------|-------------------------|----------------------------------------------------------------------|
+| payment_id     | INT (PK)                | ID unik pembayaran                                                   |
+| order_id       | INT (FK)                | ID pesanan yang dibayar (referensi ke Orders)                       |
+| amount         | DECIMAL(10, 2)          | Jumlah yang dibayar saat pengambilan hewan                          |
+| payment_status | ENUM('pending', 'paid') | Status pembayaran (pending sampai hewan diambil)                    |
+| payment_date   | DATETIME                | Tanggal pembayaran dilakukan, yaitu setelah pemilik mengambil hewan |
 
-6. Tabel: Commissions (Komisi)
-Field	Tipe Data	Deskripsi
-commission_id	INT (PK)	ID unik komisi
-perawat_id	INT (FK)	ID perawat yang menerima komisi (referensi ke Users)
-order_id	INT (FK)	ID pesanan yang menghasilkan komisi (referensi ke Orders)
-amount	DECIMAL(10, 2)	Jumlah komisi yang diterima
-paid	BOOLEAN	Apakah komisi sudah dibayar atau belum
-created_at	DATETIME	Tanggal komisi dicatat
+📄 Tabel: Commissions (Komisi)
+| Field         | Tipe Data      | Deskripsi                                                   |
+|---------------|----------------|--------------------------------------------------------------|
+| commission_id | INT (PK)       | ID unik komisi                                               |
+| perawat_id    | INT (FK)       | ID perawat yang menerima komisi (referensi ke Users)         |
+| order_id      | INT (FK)       | ID pesanan yang menghasilkan komisi (referensi ke Orders)    |
+| amount        | DECIMAL(10, 2) | Jumlah komisi yang diterima                                  |
+| paid          | BOOLEAN        | Apakah komisi sudah dibayar atau belum                       |
+| created_at    | DATETIME       | Tanggal komisi dicatat                                       |
 
+
+------
 
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
