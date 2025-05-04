@@ -3,19 +3,23 @@
 **Teman Main**   
 **(Platform Penitipan & Perawatan Hewan dengan Layanan Home Service)** 
 
+<br>
 
 <p align="center">
   <img src="unsulbar.png" alt="Logo Kampus" width="120">
 </p>
 
-
+<br><br>
 
 **Ayudian Cinta Putry**   
 **D0223019**  
 
+<br>
 
 **Framework Web Based**   
 **2025** 
+
+<div>
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
