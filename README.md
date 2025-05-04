@@ -34,7 +34,7 @@ Admin bisa melihat daftar siapa aja yang pesan layanan, jadwal penitipan/perawat
 
 ### 2. 😸 **PEMILIK HEWAN**  
 - **Profil Hewan**  
-agian untuk menyimpan informasi tentang hewan peliharaan.
+Bagian untuk menyimpan informasi tentang hewan peliharaan.
   - Tambah data hewan (jenis, riwayat kesehatan)  
 Pemilik bisa isi jenis hewan (kucing, anjing, dll) dan riwayat kesehatannya (misal: pernah sakit apa, udah vaksin belum).
   - Upload foto/vaksin  
