@@ -51,6 +51,23 @@ Pembayaran dilakukan langsung (tunai) setelah layanan selesai dan hewan dikembal
   - Lihat riwayat transaksi  
 Pemilik bisa lihat daftar layanan yang pernah dipesan, walaupun pembayarannya dilakukan secara offline.
 
+### 3. 🏡 **LAYANAN HEWAN** *(Perawat)*  
+- **Profil Layanan**  
+  - Atur jadwal ketersediaan  
+Menentukan waktu kapan bisa melayani perawatan hewan, seperti hari dan jam yang siap untuk bekerja.
+  - Tentukan area layanan  
+Menentukan lokasi atau daerah di mana dapat memberikan layanan perawatan hewan, misalnya kota atau kecamatan tertentu.
+- **Manajemen Order**  
+  - Terima/tolak permintaan
+Memutuskan apakah ingin menerima atau menolak permintaan untuk merawat hewan dari pelanggan.  
+  - Update kondisi hewan (foto+laporan)  
+Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampirkan foto dan laporan tentang kesehatan atau perawatannya.
+- **Pendapatan**  
+  - Catatan komisi  
+encatat berapa banyak komisi yang di dapat dari layanan, seperti penitipan atau grooming hewan.
+  - Penarikan dana  
+Setelah menerima komisi, Anda bisa menarik uang tersebut jika diperlukan.
+
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
