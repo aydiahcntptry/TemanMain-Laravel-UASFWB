@@ -31,11 +31,7 @@ Nonaktifin akun yang bikin masalah atau melanggar aturan.
 - **Manajemen Layanan**  
   - Pantau semua pemesanan layanan  
 Admin bisa melihat daftar siapa aja yang pesan layanan, jadwal penitipan/perawatan, dan statusnya (sudah selesai atau belum).
-- **Laporan**  
-  - Rekap layanan bulanan
-Jumlah layanan penitipan/perawatan yang terjadi dalam sebulan.
-  - Pendapatan bulanan  
-Admin bisa input sendiri jumlah uang yang diterima dari layanan yang selesai.
+
 
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
