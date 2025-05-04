@@ -1,17 +1,15 @@
-<div class="container">
-    <h1>Teman Main</h1>
-    <p class="subtitle">(Platform Penitipan & Perawatan Hewan dengan Layanan Home Service)</p>
-    
-    <!-- Logo Kampus -->
-    <img src="unsulbar.png" alt="Logo Kampus" width="150" style="margin: 20px 0;">
-    
-    <p class="author">Ayudian Cinta Putry</p>
-    <p class="author">D0223019</p>
-    
-    <p><strong>Framework Web Based</strong></p>
-    <p><strong>2025</strong></p>
-</div>
+# Teman Main  
+*(Platform Penitipan & Perawatan Hewan dengan Layanan Home Service)*  
 
+<p align="center">
+  <img src="unsulbar.png" alt="Logo Kampus" width="158">
+</p>
+
+**Ayudian Cinta Putry**  
+**D0223019**  
+
+**Framework Web Based**  
+**2025** 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
