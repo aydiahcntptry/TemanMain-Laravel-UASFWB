@@ -5,7 +5,7 @@
 
 <br>
 
-<img src="unsulbar.png" alt="Logo Kampus" width="96">
+<img src="unsulbar.png" alt="Logo Kampus" width="100">
 
 <br></br>
 
