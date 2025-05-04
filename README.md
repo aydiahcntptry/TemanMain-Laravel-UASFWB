@@ -19,19 +19,37 @@
 
 </div>
 
-# 👥 **ROLE & FITUR UTAMA**  
+## 👥 **ROLE & FITUR UTAMA**  
 
 ### 1. 👩‍💻 **ADMIN**  
 - **Manajemen Akun**  
 Mengelola data dan status pengguna platform, baik sebagai perawat hewan maupun pemilik hewan.
   - Verifikasi perawat & pemilik hewan
-  Cek dan setujui data orang yang daftar, biar aman dan jelas.
+Cek dan setujui data orang yang daftar, biar aman dan jelas.
   - Suspend akun bermasalah  
 Nonaktifin akun yang bikin masalah atau melanggar aturan.
 - **Manajemen Layanan**  
   - Pantau semua pemesanan layanan  
 Admin bisa melihat daftar siapa aja yang pesan layanan, jadwal penitipan/perawatan, dan statusnya (sudah selesai atau belum).
 
+### 2. 😸 **PEMILIK HEWAN**  
+- **Profil Hewan**  
+agian untuk menyimpan informasi tentang hewan peliharaan.
+  - Tambah data hewan (jenis, riwayat kesehatan)  
+Pemilik bisa isi jenis hewan (kucing, anjing, dll) dan riwayat kesehatannya (misal: pernah sakit apa, udah vaksin belum).
+  - Upload foto/vaksin  
+Pemilik bisa unggah foto hewan dan bukti vaksin (jika ada), biar perawat tahu kondisi hewannya.
+- **Pemesanan**  
+  - Pemesanan penitipan/grooming  
+Pesan layanan penitipan hewan atau perawatan seperti mandi, potong kuku, dll.
+  - Pilih layanan home service  
+Kalau nggak bisa datang ke tempat, bisa pilih layanan datang ke rumah.
+- **Pembayaran**  
+Informasi soal pembayaran.
+  - Bayar setelah layanan selesai (cash)  
+Pembayaran dilakukan langsung (tunai) setelah layanan selesai dan hewan dikembalikan.
+  - Lihat riwayat transaksi  
+Pemilik bisa lihat daftar layanan yang pernah dipesan, walaupun pembayarannya dilakukan secara offline.
 
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
