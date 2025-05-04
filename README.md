@@ -1,8 +1,9 @@
 **Teman Main** 
+
 **(Platform Penitipan & Perawatan Hewan dengan Layanan Home Service)**  
 
 <p align="center">
-  <img src="unsulbar.png" alt="Logo Kampus" width="100">
+  <img src="unsulbar.png" alt="Logo Kampus" width="150">
 </p>
 
 **Ayudian Cinta Putry**  
