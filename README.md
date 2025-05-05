@@ -151,7 +151,7 @@ Budi (user) punya 3 hewan: Meong (kucing), Doggy (anjing), dan Tweety (burung)
 📂 Di Database:
 Tabel Pets akan berisi 3 baris dengan owner_id yang sama (ID Budi)
 
-2. Hewan dan Pesanannya (Pets → Orders)
+### 2. **Hewan dan Pesanannya (Pets → Orders)** 
 📌 Relasi: Satu hewan bisa memiliki banyak pesanan layanan (One to Many)
 
 💡 Misal:
@@ -162,7 +162,7 @@ Grooming 1x
 📂 Di Database:
 Tabel Orders akan berisi 3 baris dengan pet_id yang sama (ID Meong)
 
-3. Layanan dan Pesanan (Services → Orders)
+### 3. **Layanan dan Pesanan (Services → Orders)** 
 📌 Relasi: Satu jenis layanan bisa digunakan oleh banyak hewan (One to Many)
 
 💡 Misal:
@@ -173,7 +173,7 @@ Doggy (anjing)
 📂 Di Database:
 Tabel Orders akan berisi beberapa baris dengan service_id yang sama (ID Grooming)
 
-4. Pesanan dan Pembayaran (Orders → Payments)
+### 4. **Pesanan dan Pembayaran (Orders → Payments)** 
 📌 Relasi: Satu pesanan hanya memiliki satu pembayaran (One to One)
 
 💡 Misal:
