@@ -142,7 +142,7 @@ Setelah menerima komisi, Anda bisa menarik uang tersebut jika diperlukan. -->
 ## 🔗 **Jenis Relasi & Tabel yang Berelasi** 
 
 
-1. Pemilik dan Hewannya (Users → Pets)
+### 1. *Pemilik dan Hewannya (Users → Pets)* 
 📌 Relasi: Satu pemilik bisa memiliki banyak hewan (One to Many)
 
 💡 Misal:
