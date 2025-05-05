@@ -141,55 +141,48 @@ Setelah menerima komisi, Anda bisa menarik uang tersebut jika diperlukan. -->
 
 ## 🔗 **Jenis Relasi & Tabel yang Berelasi** 
 
-1. Pemilik dan Hewannya (Users → Pets)
 
-📌 Hubungan: 1 pemilik bisa punya banyak hewan
+1. Pemilik dan Hewannya (Users → Pets)
+📌 Relasi: Satu pemilik bisa memiliki banyak hewan (One to Many)
 
 💡 Misal:
-
 Budi (user) punya 3 hewan: Meong (kucing), Doggy (anjing), dan Tweety (burung)
 
-Di database: Tabel Pets akan punya 3 baris dengan owner_id yang sama (ID Budi)
+📂 Di Database:
+Tabel Pets akan berisi 3 baris dengan owner_id yang sama (ID Budi)
 
 2. Hewan dan Pesanannya (Pets → Orders)
-
-📌 Hubungan: 1 hewan bisa dapat banyak layanan
+📌 Relasi: Satu hewan bisa memiliki banyak pesanan layanan (One to Many)
 
 💡 Misal:
-
 Meong (kucing) pernah:
-
 Dititipkan 2x
-
 Grooming 1x
 
-Di database: Tabel Orders akan punya 3 baris dengan pet_id yang sama (ID Meong)
+📂 Di Database:
+Tabel Orders akan berisi 3 baris dengan pet_id yang sama (ID Meong)
 
 3. Layanan dan Pesanan (Services → Orders)
-
-📌 Hubungan: 1 jenis layanan bisa dipesan banyak hewan
+📌 Relasi: Satu jenis layanan bisa digunakan oleh banyak hewan (One to Many)
 
 💡 Misal:
-
-Layanan "Grooming" bisa dipesan oleh:
-
+Layanan "Grooming" dipesan oleh:
 Meong (kucing)
-
 Doggy (anjing)
 
-Di database: Tabel Orders akan punya beberapa baris dengan service_id yang sama (ID Grooming)
+📂 Di Database:
+Tabel Orders akan berisi beberapa baris dengan service_id yang sama (ID Grooming)
 
 4. Pesanan dan Pembayaran (Orders → Payments)
-
-📌 Hubungan: 1 pesanan hanya punya 1 pembayaran
+📌 Relasi: Satu pesanan hanya memiliki satu pembayaran (One to One)
 
 💡 Misal:
-
 Pesanan penitipan Meong tanggal 1 Januari:
-
 Dibayar cash Rp100.000 saat diambil
 
-Di database: Tabel Payments punya 1 baris dengan order_id (ID pesanan Meong)
+📂 Di Database:
+Tabel Payments akan memiliki 1 baris dengan order_id sesuai pesanan Meong
+
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
