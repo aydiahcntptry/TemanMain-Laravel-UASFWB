@@ -112,14 +112,14 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 | order_id     | INT (PK)                                       | ID unik pesanan                                |
 | pet_id       | INT (FK)                                       | ID hewan yang dipesan (referensi ke Pets)      |
 | service_id   | INT (FK)                                       | ID layanan yang dipesan (referensi ke Services)|
-| status       | ENUM('pending', 'in_progress', 'completed')   | Status pesanan                                 |
+| status       | ENUM('pending', 'in_progress', 'completed')   | Status pesanan                                  |
 | service_date | DATETIME                                       | Tanggal dan waktu layanan dilakukan            |
 | created_at   | DATETIME                                       | Tanggal pembuatan pesanan                      |
 
 📄 Tabel: Payments (Pembayaran)
 | Field          | Tipe Data               | Deskripsi                                                           |
 |----------------|-------------------------|----------------------------------------------------------------------|
-| payment_id     | INT (PK)                | ID unik pembayaran                                                   |
+| payment_id     | INT (PK)                | ID unik pembayaran                                                  |
 | order_id       | INT (FK)                | ID pesanan yang dibayar (referensi ke Orders)                       |
 | amount         | DECIMAL(10, 2)          | Jumlah yang dibayar saat pengambilan hewan                          |
 | payment_status | ENUM('pending', 'paid') | Status pembayaran (pending sampai hewan diambil)                    |
@@ -151,9 +151,7 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 
 ------
 
-## 🔗 **Jenis Relasi & Tabel yang Berelasi** 
-
-## 🔗 RELASI ANTAR TABEL (Updated)
+## 🔗 **Jenis Relasi & Tabel yang Berelasi**
 
 | No | Relasi                            | Jenis Relasi     | Keterangan Singkat                                  |
 |----|-----------------------------------|------------------|-----------------------------------------------------|
