@@ -125,8 +125,6 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 | payment_status | ENUM('pending', 'paid') | Status pembayaran (pending sampai hewan diambil)                    |
 | payment_date   | DATETIME                | Tanggal pembayaran dilakukan, yaitu setelah pemilik mengambil hewan |
 
-------
-
 📄 Tabel: Events
 
 | Field       | Tipe Data    | Deskripsi                                                       |
@@ -139,8 +137,6 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 | location    | VARCHAR(100) | Lokasi/platform event (offline/online)                          |
 | created_by  | INT (FK)     | ID user yang membuat event (user_id dari tabel Users)           |
 | created_at  | DATETIME     | Tanggal event dicatatkan                                        |
-
-------
 
 📄 Tabel: event_user (Pivot Table)
 
