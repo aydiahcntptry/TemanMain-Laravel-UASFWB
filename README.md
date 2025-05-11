@@ -52,6 +52,11 @@ Informasi soal pembayaran.
 Pembayaran dilakukan langsung (tunai) setelah layanan selesai dan hewan dikembalikan.
   - Lihat riwayat transaksi  
 Pemilik bisa lihat daftar layanan yang pernah dipesan, walaupun pembayarannya dilakukan secara offline.
+- **Event** 
+  - Lihat dan daftar event
+Pemilik hewan bisa lihat daftar event yang tersedia (offline atau online) lalu ikut sesuai minat, misalnya seminar vaksinasi, pelatihan merawat kucing, dll.
+  - Riwayat event yang diikuti
+Bisa lihat daftar event yang pernah diikuti sebelumnya.
 
 ### 3. 🏡 **LAYANAN HEWAN** *(Perawat)*  
 - **Profil Layanan**  
@@ -64,14 +69,8 @@ Menentukan lokasi atau daerah di mana dapat memberikan layanan perawatan hewan, 
 Memutuskan apakah ingin menerima atau menolak permintaan untuk merawat hewan dari pelanggan.  
   - Update kondisi hewan (foto+laporan)  
 Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampirkan foto dan laporan tentang kesehatan atau perawatannya.
-<!-- - **Pendapatan**  
-  - Catatan komisi  
-encatat berapa banyak komisi yang di dapat dari layanan, seperti penitipan atau grooming hewan.
-  - Penarikan dana  
-Setelah menerima komisi, Anda bisa menarik uang tersebut jika diperlukan. -->
 
 ------
-
 
 ## 🗂️ **TABEL-TABEL DATABASE**  
 
@@ -126,62 +125,46 @@ Setelah menerima komisi, Anda bisa menarik uang tersebut jika diperlukan. -->
 | payment_status | ENUM('pending', 'paid') | Status pembayaran (pending sampai hewan diambil)                    |
 | payment_date   | DATETIME                | Tanggal pembayaran dilakukan, yaitu setelah pemilik mengambil hewan |
 
-<!-- 📄 Tabel: Commissions (Komisi)
-| Field         | Tipe Data      | Deskripsi                                                   |
-|---------------|----------------|--------------------------------------------------------------|
-| commission_id | INT (PK)       | ID unik komisi                                               |
-| perawat_id    | INT (FK)       | ID perawat yang menerima komisi (referensi ke Users)         |
-| order_id      | INT (FK)       | ID pesanan yang menghasilkan komisi (referensi ke Orders)    |
-| amount        | DECIMAL(10, 2) | Jumlah komisi yang diterima                                  |
-| paid          | BOOLEAN        | Apakah komisi sudah dibayar atau belum                       |
-| created_at    | DATETIME       | Tanggal komisi dicatat                                       |
- -->
+------
+
+📄 Tabel: Events
+
+| Field       | Tipe Data    | Deskripsi                                                       |
+|-------------|--------------|------------------------------------------------------------------|
+| event_id    | INT (PK)     | ID unik event                                                   |
+| title       | VARCHAR(100) | Judul event                                                     |
+| description | TEXT         | Deskripsi event                                                 |
+| start_date  | DATETIME     | Tanggal mulai                                                   |
+| end_date    | DATETIME     | Tanggal selesai                                                 |
+| location    | VARCHAR(100) | Lokasi/platform event (offline/online)                          |
+| created_by  | INT (FK)     | ID user yang membuat event (user_id dari tabel Users)           |
+| created_at  | DATETIME     | Tanggal event dicatatkan                                        |
+
+------
+
+📄 Tabel: event_user (Pivot Table)
+
+| Field     | Tipe Data | Deskripsi                    |
+|-----------|-----------|-------------------------------|
+| user_id   | INT (FK)  | ID pengguna yang ikut event   |
+| event_id  | INT (FK)  | ID event yang diikuti         |
 
 ------
 
 ## 🔗 **Jenis Relasi & Tabel yang Berelasi** 
 
+## 🔗 RELASI ANTAR TABEL (Updated)
 
-### 1. **Pemilik dan Hewannya (Users → Pets)** 
-📌 Relasi: Satu pemilik bisa memiliki banyak hewan (One to Many)
+| No | Relasi                            | Jenis Relasi     | Keterangan Singkat                                  |
+|----|-----------------------------------|------------------|-----------------------------------------------------|
+| 1  | Users → Pets                      | One to Many      | Satu user bisa punya banyak hewan                   |
+| 2  | Pets → Orders                     | One to Many      | Satu hewan bisa punya banyak pesanan               |
+| 3  | Services → Orders                 | One to Many      | Satu layanan bisa digunakan di banyak pesanan       |
+| 4  | Orders → Payments                 | One to One       | Satu pesanan hanya satu kali pembayaran             |
+| 5  | Users → Events (via `created_by`) | One to Many      | Satu user bisa membuat banyak event                 |
+| 6  | Users ↔ Events (via `event_user`) | Many to Many     | Banyak user bisa ikut banyak event                 |
 
-💡 Misal:
-Budi (user) punya 3 hewan: Meong (kucing), Doggy (anjing), dan Tweety (burung)
-
-📂 Di Database:
-Tabel Pets akan berisi 3 baris dengan owner_id yang sama (ID Budi)
-
-### 2. **Hewan dan Pesanannya (Pets → Orders)** 
-📌 Relasi: Satu hewan bisa memiliki banyak pesanan layanan (One to Many)
-
-💡 Misal:
-Meong (kucing) pernah:
-Dititipkan 2x
-Grooming 1x
-
-📂 Di Database:
-Tabel Orders akan berisi 3 baris dengan pet_id yang sama (ID Meong)
-
-### 3. **Layanan dan Pesanan (Services → Orders)** 
-📌 Relasi: Satu jenis layanan bisa digunakan oleh banyak hewan (One to Many)
-
-💡 Misal:
-Layanan "Grooming" dipesan oleh:
-Meong (kucing)
-Doggy (anjing)
-
-📂 Di Database:
-Tabel Orders akan berisi beberapa baris dengan service_id yang sama (ID Grooming)
-
-### 4. **Pesanan dan Pembayaran (Orders → Payments)** 
-📌 Relasi: Satu pesanan hanya memiliki satu pembayaran (One to One)
-
-💡 Misal:
-Pesanan penitipan Meong tanggal 1 Januari:
-Dibayar cash Rp100.000 saat diambil
-
-📂 Di Database:
-Tabel Payments akan memiliki 1 baris dengan order_id sesuai pesanan Meong
+------
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
