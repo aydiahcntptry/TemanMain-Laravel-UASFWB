@@ -144,7 +144,7 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 
 📄 Tabel: event_user (Pivot Table)
 
-| Field     | Tipe Data | Deskripsi                    |
+| Field     | Tipe Data | Deskripsi                     |
 |-----------|-----------|-------------------------------|
 | user_id   | INT (FK)  | ID pengguna yang ikut event   |
 | event_id  | INT (FK)  | ID event yang diikuti         |
