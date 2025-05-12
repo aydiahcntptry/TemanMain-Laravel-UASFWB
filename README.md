@@ -125,7 +125,7 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 | payment_status | ENUM('pending', 'paid') | Status pembayaran (pending sampai hewan diambil)                    |
 | payment_date   | DATETIME                | Tanggal pembayaran dilakukan, yaitu setelah pemilik mengambil hewan |
 
-📄 Tabel: Events
+📄 Tabel: Events (Acara)
 
 | Field       | Tipe Data    | Deskripsi                                                       |
 |-------------|--------------|------------------------------------------------------------------|
@@ -149,7 +149,7 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 
 ## 🔗 **Jenis Relasi & Tabel yang Berelasi**
 
-| No | Relasi                            | Jenis Relasi     | Keterangan Singkat                                  |
+| No | Relasi                            | Jenis Relasi     | Keterangan                                          |
 |----|-----------------------------------|------------------|-----------------------------------------------------|
 | 1  | Users → Pets                      | One to Many      | Satu user bisa punya banyak hewan                   |
 | 2  | Pets → Orders                     | One to Many      | Satu hewan bisa punya banyak pesanan               |
