@@ -38,7 +38,7 @@ return new class extends Migration
             $table->text('vaccination')->nullable();
             $table->timestamp('created_at')->useCurrent();
             
-            $table->foreign('owner_id')->references('user_id')->on('user');
+            $table->foreign('owner_id')->references('user_id')->on('pengguna');
         });
 
         // Create layanan table
@@ -59,8 +59,8 @@ return new class extends Migration
             $table->dateTime('service_date');
             $table->timestamp('created_at')->useCurrent();
             
-            $table->foreign('pet_id')->references('pet_id')->on('pets');
-            $table->foreign('service_id')->references('service_id')->on('services');
+            $table->foreign('pet_id')->references('pet_id')->on('hewan');
+            $table->foreign('service_id')->references('service_id')->on('layanan');
         });
 
         // Create pembayaran table
@@ -71,7 +71,7 @@ return new class extends Migration
             $table->enum('payment_status', ['pending', 'paid'])->default('pending');
             $table->dateTime('payment_date')->nullable();
             
-            $table->foreign('order_id')->references('order_id')->on('orders');
+            $table->foreign('order_id')->references('order_id')->on('pesanan');
         });
 
         // Create acara table
@@ -85,7 +85,7 @@ return new class extends Migration
             $table->unsignedBigInteger('created_by');
             $table->timestamp('created_at')->useCurrent();
 
-            $table->foreign('created_by')->references('user_id')->on('users');
+            $table->foreign('created_by')->references('user_id')->on('pengguna');
         });
 
         // Create acaraPengguna pivot table
@@ -94,8 +94,8 @@ return new class extends Migration
             $table->unsignedBigInteger('event_id');
             $table->primary(['user_id', 'event_id']);
 
-            $table->foreign('user_id')->references('user_id')->on('users');
-            $table->foreign('event_id')->references('event_id')->on('events');
+            $table->foreign('user_id')->references('user_id')->on('pengguna');
+            $table->foreign('event_id')->references('event_id')->on('acara');
         });
 
     }
