@@ -146,14 +146,14 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 
 ## 🔗 **Jenis Relasi & Tabel yang Berelasi**
 
-| No | Relasi               | Jenis Relasi     | Keterangan                                      |
-|----|----------------------|------------------|-------------------------------------------------|
-| 1  | Users → Pets         | One to Many      | Satu user bisa punya banyak hewan               |
-| 2  | Pets → Orders        | One to Many      | Satu hewan bisa punya banyak pesanan            |
-| 3  | Services → Orders    | One to Many      | Satu layanan bisa digunakan di banyak pesanan   |
-| 4  | Orders → Payments    | One to One       | Satu pesanan hanya satu kali pembayaran         |
-| 5  | Users → Events       | One to Many      | Satu user bisa membuat banyak event             |
-| 6  | Users ↔ Events       | Many to Many     | Banyak user bisa ikut banyak event              |
+| No | Relasi                  | Jenis Relasi     | Keterangan                                      |
+|----|-------------------------|------------------|-------------------------------------------------|
+| 1  | Users → Pets            | One to Many      | Satu user bisa punya banyak hewan               |
+| 2  | Pets → Orders           | One to Many      | Satu hewan bisa punya banyak pesanan            |
+| 3  | Services → Orders       | One to Many      | Satu layanan bisa digunakan di banyak pesanan   |
+| 4  | Orders → Payments       | One to One       | Satu pesanan hanya satu kali pembayaran         |
+| 5  | Users → Events          | One to Many      | Satu user bisa membuat banyak event             |
+| 6  | Users ↔ Events          | Many to Many     | Banyak user bisa ikut banyak event              |
 
 -------
 
