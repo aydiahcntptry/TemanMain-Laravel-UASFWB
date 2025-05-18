@@ -19,7 +19,7 @@
 
 </div>
 
-------
+-------
 
 ## 👥 **ROLE & FITUR UTAMA**  
 
@@ -42,9 +42,9 @@ Pemilik bisa isi jenis hewan (kucing, anjing, dll) dan riwayat kesehatannya (mis
   - Upload foto/vaksin  
 Pemilik bisa unggah foto hewan dan bukti vaksin (jika ada), biar perawat tahu kondisi hewannya.
 - **Pemesanan**  
-  - Pemesanan penitipan/grooming  
+  - Pemesanan penitipan/perawatan  
 Pesan layanan penitipan hewan atau perawatan seperti mandi, potong kuku, dll.
-  - Pilih layanan home service  
+  - Pilih layanan dirumah  
 Kalau nggak bisa datang ke tempat, bisa pilih layanan datang ke rumah.
 - **Pembayaran**  
 Informasi soal pembayaran.
@@ -75,36 +75,35 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 ## 🗂️ **TABEL-TABEL DATABASE**  
 
 📄 Tabel: Users (Pengguna)
-| Field      | Tipe Data                                           | Deskripsi                                 |
-|------------|-----------------------------------------------------|--------------------------------------------|
-| user_id    | INT (PK)                                            | ID unik pengguna                           |
-| username   | VARCHAR(50)                                         | Nama pengguna                              |
-| email      | VARCHAR(100)                                        | Alamat email pengguna                      |
-| password   | VARCHAR(255)                                        | Password pengguna                          |
-| role       | ENUM('admin', 'pemilik_hewan', 'perawat_hewan')    | Peran pengguna di platform                 |
-| status     | ENUM('aktif', 'suspend')                            | Status akun (aktif atau suspend)           |
-| created_at | DATETIME                                            | Tanggal pembuatan akun                     |
+| Field      | Tipe Data                                            | Deskripsi                                 |
+|------------|------------------------------------------------------|-------------------------------------------|
+| id         | INT (PK)                                             | ID unik pengguna                          |
+| username   | String                                               | Nama pengguna                             |
+| email      | String                                               | Alamat email pengguna                     |
+| password   | String                                               | Password pengguna                         |
+| role       | ENUM('admin', 'pemilik_hewan', 'perawat_hewan')      | Peran pengguna di platform                |
+| timetamps  | TIMESTAMP                                            | created_at, updated_at                    |
 
 📄 Tabel: Pets (Hewan Peliharaan)
-| Field           | Tipe Data     | Deskripsi                                 |
+| Field           | Tipe Data     | Deskripsi                                  |
 |-----------------|---------------|--------------------------------------------|
 | pet_id          | INT (PK)      | ID unik hewan                              |
 | owner_id        | INT (FK)      | ID pemilik hewan (referensi ke Users)      |
-| name            | VARCHAR(50)   | Nama hewan                                 |
-| species         | VARCHAR(50)   | Jenis hewan (misal: anjing, kucing, dll)   |
+| name            | string        | Nama hewan                                 |
+| species         | string        | Jenis hewan (misal: anjing, kucing, dll)   |
 | health_history  | TEXT          | Riwayat kesehatan hewan                    |
-| photo           | VARCHAR(255)  | Link foto hewan                            |
+| photo           | string        | path gambar                                |
 | vaccination     | TEXT          | Riwayat vaksinasi                          |
-| created_at      | DATETIME      | Tanggal pembuatan data hewan               |
+| timetamps       | TIMESTAMP     | created_at, updated_at                     |
 
 📄 Tabel: Services (Layanan)
-| Field        | Tipe Data                                       | Deskripsi                          |
+| Field        | Tipe Data                                        | Deskripsi                           |
 |--------------|--------------------------------------------------|-------------------------------------|
 | service_id   | INT (PK)                                         | ID unik layanan                     |
-| service_type | ENUM('penitipan', 'grooming', 'home_service')   | Jenis layanan                       |
+| service_type | ENUM('penitipan', 'perawatan', 'layanan_dirumah')| Jenis layanan                       |
 | price        | DECIMAL(10, 2)                                   | Harga layanan                       |
 | description  | TEXT                                             | Deskripsi layanan                   |
-| created_at   | DATETIME                                         | Tanggal layanan dibuat              |
+| timetamps    | TIMESTAMP                                        | created_at, updated_at              |
 
 📄 Tabel: Orders (Pesanan)
 | Field        | Tipe Data                                      | Deskripsi                                      |
@@ -112,53 +111,51 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 | order_id     | INT (PK)                                       | ID unik pesanan                                |
 | pet_id       | INT (FK)                                       | ID hewan yang dipesan (referensi ke Pets)      |
 | service_id   | INT (FK)                                       | ID layanan yang dipesan (referensi ke Services)|
-| status       | ENUM('pending', 'in_progress', 'completed')   | Status pesanan                                  |
-| service_date | DATETIME                                       | Tanggal dan waktu layanan dilakukan            |
-| created_at   | DATETIME                                       | Tanggal pembuatan pesanan                      |
+| status       | ENUM('tertunda', 'dalam_Proses', 'selesai')    | Status pesanan                                 |
+| service_date | DATETIME                                       | Tanggal layanan dilakukan                      |
+| timetamps    | TIMESTAMP                                      | created_at, updated_at                         |
 
 📄 Tabel: Payments (Pembayaran)
-| Field          | Tipe Data               | Deskripsi                                                           |
-|----------------|-------------------------|----------------------------------------------------------------------|
-| payment_id     | INT (PK)                | ID unik pembayaran                                                  |
-| order_id       | INT (FK)                | ID pesanan yang dibayar (referensi ke Orders)                       |
-| amount         | DECIMAL(10, 2)          | Jumlah yang dibayar saat pengambilan hewan                          |
-| payment_status | ENUM('pending', 'paid') | Status pembayaran (pending sampai hewan diambil)                    |
-| payment_date   | DATETIME                | Tanggal pembayaran dilakukan, yaitu setelah pemilik mengambil hewan |
+| Field          | Tipe Data                   | Deskripsi                                                           |
+|----------------|-----------------------------|---------------------------------------------------------------------|
+| payment_id     | INT (PK)                    | ID unik pembayaran                                                  |
+| order_id       | INT (FK)                    | ID pesanan yang dibayar (referensi ke Orders)                       |
+| amount         | DECIMAL(10, 2)              | Jumlah yang dibayar saat pengambilan hewan                          |
+| payment_status | ENUM('tertunda', 'dibayar') | Status pembayaran (pending sampai hewan diambil)                    |
+| timetamps      | TIMESTAMP                   | created_at, updated_at                                              |
 
 📄 Tabel: Events (Acara)
-
 | Field       | Tipe Data    | Deskripsi                                                       |
-|-------------|--------------|------------------------------------------------------------------|
+|-------------|--------------|-----------------------------------------------------------------|
 | event_id    | INT (PK)     | ID unik event                                                   |
-| title       | VARCHAR(100) | Judul event                                                     |
+| title       | string       | Judul event                                                     |
 | description | TEXT         | Deskripsi event                                                 |
 | start_date  | DATETIME     | Tanggal mulai                                                   |
 | end_date    | DATETIME     | Tanggal selesai                                                 |
-| location    | VARCHAR(100) | Lokasi/platform event (offline/online)                          |
+| location    | string       | Lokasi/platform event (offline/online)                          |
 | created_by  | INT (FK)     | ID user yang membuat event (user_id dari tabel Users)           |
-| created_at  | DATETIME     | Tanggal event dicatatkan                                        |
+| timetamps   | TIMESTAMP    | created_at, updated_at                                          |
 
 📄 Tabel: event_user (Pivot Table)
-
 | Field     | Tipe Data | Deskripsi                     |
 |-----------|-----------|-------------------------------|
-| user_id   | INT (FK)  | ID pengguna yang ikut event   |
+| id        | INT (FK)  | ID pengguna yang ikut event   |
 | event_id  | INT (FK)  | ID event yang diikuti         |
 
 ------
 
 ## 🔗 **Jenis Relasi & Tabel yang Berelasi**
 
-| No | Relasi                            | Jenis Relasi     | Keterangan                                          |
-|----|-----------------------------------|------------------|-----------------------------------------------------|
-| 1  | Users → Pets                      | One to Many      | Satu user bisa punya banyak hewan                   |
-| 2  | Pets → Orders                     | One to Many      | Satu hewan bisa punya banyak pesanan               |
-| 3  | Services → Orders                 | One to Many      | Satu layanan bisa digunakan di banyak pesanan       |
-| 4  | Orders → Payments                 | One to One       | Satu pesanan hanya satu kali pembayaran             |
-| 5  | Users → Events (via `created_by`) | One to Many      | Satu user bisa membuat banyak event                 |
-| 6  | Users ↔ Events (via `event_user`) | Many to Many     | Banyak user bisa ikut banyak event                 |
+| No | Relasi               | Jenis Relasi     | Keterangan                                      |
+|----|----------------------|------------------|-------------------------------------------------|
+| 1  | Users → Pets         | One to Many      | Satu user bisa punya banyak hewan               |
+| 2  | Pets → Orders        | One to Many      | Satu hewan bisa punya banyak pesanan            |
+| 3  | Services → Orders    | One to Many      | Satu layanan bisa digunakan di banyak pesanan   |
+| 4  | Orders → Payments    | One to One       | Satu pesanan hanya satu kali pembayaran         |
+| 5  | Users → Events       | One to Many      | Satu user bisa membuat banyak event             |
+| 6  | Users ↔ Events       | Many to Many     | Banyak user bisa ikut banyak event              |
 
-------
+-------
 
 <!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
