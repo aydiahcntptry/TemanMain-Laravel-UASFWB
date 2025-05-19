@@ -74,15 +74,24 @@ Memberikan informasi terbaru tentang kondisi hewan yang dirawat, dengan melampir
 
 ## 🗂️ **TABEL-TABEL DATABASE**  
 
+📄 Tabel: Roles
+| Field      | Tipe Data | Deskripsi                                |
+|------------|-----------|------------------------------------------|
+| id         | INT (PK)  | ID unik untuk role                       |
+| name       | String    | Nama peran (admin, pemilik_hewan, dll)   |
+| timestamps | Timestamp | created_at, updated_at                   |
+
+
 📄 Tabel: Users (Pengguna)
-| Field      | Tipe Data                                            | Deskripsi                                 |
-|------------|------------------------------------------------------|-------------------------------------------|
-| id         | INT (PK)                                             | ID unik pengguna                          |
-| username   | String                                               | Nama pengguna                             |
-| email      | String                                               | Alamat email pengguna                     |
-| password   | String                                               | Password pengguna                         |
-| role       | ENUM('admin', 'pemilik_hewan', 'perawat_hewan')      | Peran pengguna di platform                |
-| timetamps  | TIMESTAMP                                            | created_at, updated_at                    |
+| Field      | Tipe Data | Deskripsi                         |
+|------------|-----------|-----------------------------------|
+| id         | INT (PK)  | ID unik pengguna                  |
+| username   | String    | Nama pengguna                     |
+| email      | String    | Alamat email pengguna             |
+| password   | String    | Password pengguna                 |
+| role_id    | INT (FK)  | Foreign key ke tabel roles        |
+| timestamps | Timestamp | created_at, updated_at            |
+
 
 📄 Tabel: Pets (Hewan Peliharaan)
 | Field           | Tipe Data     | Deskripsi                                  |
