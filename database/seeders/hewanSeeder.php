@@ -13,10 +13,15 @@ class hewanSeeder extends Seeder
      */
     public function run(): void
     {
-    $ownerId = DB::table('users')->where('role', 'pemilik_hewan')->first()->id;
+     // Ambil role 'pemilik_hewan' dari tabel roles
+        $role = DB::table('roles')->where('name', 'pemilik_hewan')->first();
 
+        // Ambil satu user yang punya role_id sesuai dengan role 'pemilik_hewan'
+        $owner = DB::table('users')->where('role_id', $role->id)->first();
+
+        // Masukkan data ke tabel hewan
         DB::table('hewan')->insert([
-            'owner_id' => $ownerId,
+            'owner_id' => $owner->id,
             'name' => 'Kitty',
             'species' => 'Kucing Persia',
             'health_history' => 'Pernah flu ringan',

@@ -2,18 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
 class acaraSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        $adminId = DB::table('users')->where('role', 'admin')->first()->id;
+        $adminRole = DB::table('roles')->where('name', 'admin')->first();
+
+        $adminUser = DB::table('users')->where('role_id', $adminRole->id)->first();
 
         DB::table('acara')->insert([
             'title' => 'Fun Pet Day',
@@ -21,7 +19,7 @@ class acaraSeeder extends Seeder
             'start_date' => now()->addWeek(),
             'end_date' => now()->addWeeks(2),
             'location' => 'Lapangan Hijau PetPark',
-            'created_by' => $adminId,
+            'created_by' => $adminUser->id,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

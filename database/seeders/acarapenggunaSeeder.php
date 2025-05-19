@@ -13,7 +13,13 @@ class acarapenggunaSeeder extends Seeder
      */
     public function run(): void
     {
-        $ownerId = DB::table('users')->where('role', 'pemilik_hewan')->first()->id;
+         // Ambil ID role 'pemilik_hewan'
+        $pemilikRoleId = DB::table('roles')->where('name', 'pemilik_hewan')->value('id');
+
+        // Cari user dengan role_id sesuai
+        $ownerId = DB::table('users')->where('role_id', $pemilikRoleId)->first()->id;
+
+        // Ambil event_id dari table acara
         $eventId = DB::table('acara')->first()->event_id;
 
         DB::table('acaraPengguna')->insert([

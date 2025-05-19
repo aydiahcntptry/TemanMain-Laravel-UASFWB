@@ -21,14 +21,14 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            rolesSeeder::class,
-            penggunaSeeder::class,
-            hewanSeeder::class,
-            layananSeeder::class,
-            pesananSeeder::class,
-            pembayaranSeeder::class,
-            acaraSeeder::class,
-            acarapenggunaSeeder::class,
+        rolesSeeder::class,
+        penggunaSeeder::class,
+        acaraSeeder::class,      
+        hewanSeeder::class,
+        layananSeeder::class,
+        pesananSeeder::class,
+        pembayaranSeeder::class,
+        acarapenggunaSeeder::class
         ]);
     }
 }
